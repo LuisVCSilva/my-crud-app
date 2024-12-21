@@ -52,18 +52,30 @@ def get_routes(app):
     return routes
 
 def doComputation(_input):
-   #print(get_routes(core_app))
-   #print(difflib.get_close_matches(_input["text"].split()[0], ["integrate"]))
    sleep(1)
    output = {}
-   try:
-      target_resource = "https://luisvcsilva.pythonanywhere.com/"+url_for(_input["text"].split()[0]+".run")
-      target_resource = target_resource + "" if len(_input["text"].split())==1 else target_resource + "?input="+quote(" ".join(_input["text"].split()[1:]).encode("utf-8"))
-      output = json.dumps({"url":target_resource})
-   except BuildError as e:
-      output = json.dumps({"error":"I couldn't understand... did you mean " + str(e).split("Did you mean ")[-1].split("'")[1].split(".")[0] + " instead of " + _input["text"].split()[0] + "?"})
-   return output
 
+   # Get the base URL from an environment variable, default to localhost if not set
+   base_url = os.getenv("BASE_URL", "http://localhost:5000")
+
+   try:
+      # Construct the target resource URL
+      target_resource = f"{base_url}/{url_for(_input['text'].split()[0] + '.run')}"
+      
+      # Add query parameters if necessary
+      if len(_input["text"].split()) > 1:
+         target_resource += "?input=" + quote(" ".join(_input["text"].split()[1:]).encode("utf-8"))
+      
+      output = json.dumps({"url": target_resource})
+
+   except BuildError as e:
+      output = json.dumps({
+         "error": "I couldn't understand... did you mean " +
+         str(e).split("Did you mean ")[-1].split("'")[1].split(".")[0] +
+         " instead of " + _input["text"].split()[0] + "?"
+      })
+
+   return output
 
 
 

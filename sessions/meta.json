@@ -1,0 +1,26 @@
+{
+    "meta": {
+        "duration": 1.6689300537109375e-05,
+        "computation_time_balance": 29.999982595443726,
+        "server_time": "21/12/2024 11:49:57",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0",
+        "ip": "127.0.0.1"
+    },
+    "input": {
+        "text": "integrate x"
+    },
+    "output": "{\"url\": \"https://luisvcsilva.pythonanywhere.com//apps/integrate?input=x\"}"
+}
+{
+    "meta": {
+        "duration": 1.4543533325195312e-05,
+        "computation_time_balance": 29.9999840259552,
+        "server_time": "21/12/2024 11:50:01",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0",
+        "ip": "127.0.0.1"
+    },
+    "input": {
+        "text": "about"
+    },
+    "output": "{\"url\": \"https://luisvcsilva.pythonanywhere.com//apps/about\"}"
+}
