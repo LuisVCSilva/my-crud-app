@@ -1,0 +1,1 @@
+{"meta": {"duration": 1.2159347534179688e-05, "computation_time_balance": 29.99998688697815, "server_time": "21/12/2024 10:22:04", "user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0", "ip": "127.0.0.1"}, "input": {"text": "test"}, "output": "{\"error\": \"I couldn't understand... did you mean template instead of test?\"}"}

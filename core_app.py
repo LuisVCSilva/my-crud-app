@@ -100,7 +100,6 @@ def getcookie():
 
 @core_app.route('/')
 def main():    
-   app.secret_key = '123'
    resp = make_response(render_template('index.html'))
    if "id" not in session:
       resp.set_cookie('userID',str(uuid.uuid1()))
