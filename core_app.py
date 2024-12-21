@@ -111,6 +111,14 @@ def getcookie():
    name = request.cookies.get('userID')
    return '<h1>welcome ' + name + '</h1>'
 
+@app.route('/update_server', methods=['POST'])
+    def webhook():
+        if request.method == 'POST':
+            repo = git.Repo('https://github.com/LuisVCSilva/my-crud-app.git')
+            origin = repo.remotes.originorigin.pull()return 'Updated PythonAnywhere successfully', 200
+        else:
+            return 'Wrong event type', 400
+
 @core_app.route('/')
 def main():
    resp = make_response(render_template('index.html'))
