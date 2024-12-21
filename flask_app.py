@@ -8,7 +8,7 @@ from core_app import *
 from modules.apps.show import show
 from modules.apps.help import help
 from modules.apps.get_session import get_session
-from modules.apps.list_files import list_files                          
+from modules.apps.list_files import list_files
 from modules.apps.integrate import integrate
 from modules.apps.derivative import derivative
 from modules.apps.taylor_series import taylor_series
@@ -28,12 +28,12 @@ from modules.apps.logout import logout
 #from modules.equations.kinematics_equation import kinematics_equation
 
 app = Flask(__name__,template_folder="templates",static_folder="static")
-
+app.secret_key = '123'
 app.register_blueprint(core_app)
 app.register_blueprint(help)
 app.register_blueprint(show)
-app.register_blueprint(get_session)      
-app.register_blueprint(list_files)                      
+app.register_blueprint(get_session)
+app.register_blueprint(list_files)
 app.register_blueprint(integrate)
 app.register_blueprint(derivative)
 app.register_blueprint(taylor_series)
@@ -65,8 +65,9 @@ def list_apps():
     routes = [route for route in routes if "/apps/" in route["path"]]
     return routes
 
+
+'''
 if __name__ == '__main__':
-   app.secret_key = "123"
    app.run(host='localhost', port=5000, debug=True)
    app.config['SESSION_TYPE'] = 'filesystem'
    app.config['SECRET_KEY'] = 'secret-key-goes-here'
@@ -75,8 +76,12 @@ if __name__ == '__main__':
    #db.create_all(app=app)
    #db.init_app(app)
    #db.create_all()
-   #app.config.from_pyfile('settings.py')    
-   app.debug = True                  
+   #app.config.from_pyfile('settings.py')
+   app.debug = True
    app.run()
+'''
 
-                   
+# Runner and Debugger
+if __name__ == "__main__":
+    app.run(debug=True)
+

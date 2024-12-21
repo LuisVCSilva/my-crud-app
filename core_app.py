@@ -17,8 +17,8 @@ import difflib
 
 def similar(a, b):
     return SequenceMatcher(None, a, b).ratio()
-    
-    
+
+
 MAX_COMPUTATION_TIME_PER_CLIENT = 30
 
 core_app = Blueprint('core_app', __name__)
@@ -33,7 +33,7 @@ base = Path('sessions')
 def getMetadata(t0):
  return {
  "duration":time.time()-t0,
- "computation_time_balance":MAX_COMPUTATION_TIME_PER_CLIENT-(time.time()-t0), 
+ "computation_time_balance":MAX_COMPUTATION_TIME_PER_CLIENT-(time.time()-t0),
  "server_time":datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
  "user-agent":request.headers.get('User-Agent'),
  "ip":request.remote_addr
@@ -57,7 +57,7 @@ def doComputation(_input):
    sleep(1)
    output = {}
    try:
-      target_resource = "http://localhost:5000"+url_for(_input["text"].split()[0]+".run")
+      target_resource = "https://luisvcsilva.pythonanywhere.com/"+url_for(_input["text"].split()[0]+".run")
       target_resource = target_resource + "" if len(_input["text"].split())==1 else target_resource + "?input="+quote(" ".join(_input["text"].split()[1:]).encode("utf-8"))
       output = json.dumps({"url":target_resource})
    except BuildError as e:
@@ -78,12 +78,13 @@ def evaluate():
       return _output
    return 0
 
-def dumpComputation(_meta,_input,_output):
-    jsonpath = base / (str(session["id"])+"/meta.json")
-    (base / (str(session["id"]))).mkdir(exist_ok=True)
+def dumpComputation(_meta, _input, _output):
+    session_id = session.get("id", "default_session")
+    jsonpath = base / f"meta.json"  # Create the path for the session-specific meta.json file
+    (base / session_id).mkdir(parents=True, exist_ok=True)
     with open(jsonpath, 'a' if os.path.exists(jsonpath) else 'w', encoding='utf-8') as file:
-       file.write(json.dumps({'meta':_meta,"input":_input,"output":_output})+"\n")
-   
+        file.write(json.dumps({'meta': _meta, 'input': _input, 'output': _output}, ensure_ascii=False, indent=4) + "\n")
+
 @core_app.route('/login/',methods = ['GET','POST'])
 def login():
    return make_response(render_template('login.html'))
@@ -92,27 +93,25 @@ def login():
 def setcookie():
    resp.set_cookie('userID', user)
    return resp
-   
+
 @core_app.route('/getcookie')
 def getcookie():
    name = request.cookies.get('userID')
-   return '<h1>welcome ' + name + '</h1>'   
+   return '<h1>welcome ' + name + '</h1>'
 
 @core_app.route('/')
-def main():    
+def main():
    resp = make_response(render_template('index.html'))
    if "id" not in session:
       resp.set_cookie('userID',str(uuid.uuid1()))
-
-      session["id"] = str(uuid.uuid1())
-      os.makedirs('./sessions/'+str(session["id"]))
-      jsonpath = base / (str(session["id"])+"/meta.json")
-      base.mkdir(exist_ok=True)      
+      os.makedirs('./sessions/',exist_ok=True)
+      jsonpath = base / ("/meta.json")
+      base.mkdir(exist_ok=True)
    return resp
 
 def create_session():
-   session["id"] = str(uuid.uuid1())
-   os.makedirs('./sessions/'+str(session["id"]))
+   #session["id"] = str(uuid.uuid1())
+   os.makedirs('./sessions/')
 
 '''
 if __name__ == '__main__':
@@ -125,6 +124,6 @@ if __name__ == '__main__':
     #db.create_all(app=app)
     #db.init_app(app)
     #db.create_all()
-    #app.config.from_pyfile('settings.py')    
-    app.debug = True 
-'''    
+    #app.config.from_pyfile('settings.py')
+    app.debug = True
+'''

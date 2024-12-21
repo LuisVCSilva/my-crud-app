@@ -6,7 +6,7 @@ login = Blueprint('login', __name__)
 class Login:
    def __init__ (self):
       self.functions = [show_login]
-      self.text = "<p>Dogemath is a easy to use mathematical engine</p><p>Made by Luis Vinicius Costa Silva</p><p>Meet me at Twitter/GitHub: @LuisVCSilva</p>"
+      self.text = "<p>Malba is a easy to use mathematical engine</p><p>Made by Luis Vinicius Costa Silva</p><p>Meet me at Twitter/GitHub: @LuisVCSilva</p>"
    @staticmethod
    def show_login(func):
       return self.text 
