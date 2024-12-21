@@ -22,7 +22,7 @@ def similar(a, b):
 MAX_COMPUTATION_TIME_PER_CLIENT = 30
 
 core_app = Blueprint('core_app', __name__)
-app.secret_key = '123'
+
 #core_app.config.from_object(flaskcode.default_config)
 #core_app.config['FLASKCODE_RESOURCE_BASEPATH'] = 'userfiles'
 #core_app.register_blueprint(flaskcode.blueprint, url_prefix='/flaskcode')
@@ -100,6 +100,7 @@ def getcookie():
 
 @core_app.route('/')
 def main():    
+   app.secret_key = '123'
    resp = make_response(render_template('index.html'))
    if "id" not in session:
       resp.set_cookie('userID',str(uuid.uuid1()))
