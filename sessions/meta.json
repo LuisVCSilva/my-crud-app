@@ -24,3 +24,133 @@
     },
     "output": "{\"url\": \"https://luisvcsilva.pythonanywhere.com//apps/about\"}"
 }
+{
+    "meta": {
+        "duration": 1.3113021850585938e-05,
+        "computation_time_balance": 29.99998641014099,
+        "server_time": "21/12/2024 11:58:58",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0",
+        "ip": "127.0.0.1"
+    },
+    "input": {
+        "text": "about"
+    },
+    "output": "{\"url\": \"http://localhost:5000//apps/about\"}"
+}
+{
+    "meta": {
+        "duration": 3.147125244140625e-05,
+        "computation_time_balance": 29.9999680519104,
+        "server_time": "21/12/2024 11:59:02",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0",
+        "ip": "127.0.0.1"
+    },
+    "input": {
+        "text": "integrate x"
+    },
+    "output": "{\"url\": \"http://localhost:5000//apps/integrate?input=x\"}"
+}
+{
+    "meta": {
+        "duration": 2.1219253540039062e-05,
+        "computation_time_balance": 29.999977588653564,
+        "server_time": "21/12/2024 12:02:35",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0",
+        "ip": "127.0.0.1"
+    },
+    "input": {
+        "text": "help"
+    },
+    "output": "{\"url\": \"http://localhost:5000//apps/help\"}"
+}
+{
+    "meta": {
+        "duration": 1.5020370483398438e-05,
+        "computation_time_balance": 29.9999840259552,
+        "server_time": "21/12/2024 12:03:31",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0",
+        "ip": "127.0.0.1"
+    },
+    "input": {
+        "text": "help"
+    },
+    "output": "{\"url\": \"http://localhost:5000//apps/help\"}"
+}
+{
+    "meta": {
+        "duration": 1.1682510375976562e-05,
+        "computation_time_balance": 29.999987840652466,
+        "server_time": "21/12/2024 12:03:41",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0",
+        "ip": "127.0.0.1"
+    },
+    "input": {
+        "text": "help"
+    },
+    "output": "{\"url\": \"http://localhost:5000//apps/help\"}"
+}
+{
+    "meta": {
+        "duration": 1.3113021850585938e-05,
+        "computation_time_balance": 29.999986171722412,
+        "server_time": "21/12/2024 12:04:06",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0",
+        "ip": "127.0.0.1"
+    },
+    "input": {
+        "text": "help"
+    },
+    "output": "{\"url\": \"http://localhost:5000//apps/help\"}"
+}
+{
+    "meta": {
+        "duration": 2.7418136596679688e-05,
+        "computation_time_balance": 29.999970197677612,
+        "server_time": "21/12/2024 12:04:16",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0",
+        "ip": "127.0.0.1"
+    },
+    "input": {
+        "text": "about"
+    },
+    "output": "{\"url\": \"http://localhost:5000//apps/about\"}"
+}
+{
+    "meta": {
+        "duration": 1.3828277587890625e-05,
+        "computation_time_balance": 29.999985694885254,
+        "server_time": "21/12/2024 12:04:18",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0",
+        "ip": "127.0.0.1"
+    },
+    "input": {
+        "text": "help"
+    },
+    "output": "{\"url\": \"http://localhost:5000//apps/help\"}"
+}
+{
+    "meta": {
+        "duration": 1.3589859008789062e-05,
+        "computation_time_balance": 29.999985456466675,
+        "server_time": "21/12/2024 12:04:24",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0",
+        "ip": "127.0.0.1"
+    },
+    "input": {
+        "text": "help"
+    },
+    "output": "{\"url\": \"http://localhost:5000//apps/help\"}"
+}
+{
+    "meta": {
+        "duration": 1.1205673217773438e-05,
+        "computation_time_balance": 29.999988079071045,
+        "server_time": "21/12/2024 12:04:32",
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0",
+        "ip": "127.0.0.1"
+    },
+    "input": {
+        "text": "get_session"
+    },
+    "output": "{\"url\": \"http://localhost:5000//apps/get_session\"}"
+}
