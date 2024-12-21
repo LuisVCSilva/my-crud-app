@@ -1,0 +1,19 @@
+import json
+from flask import Blueprint, request
+
+template = Blueprint('template', __name__)
+
+class Template:
+   def __init__ (self):
+      self.functions = [show_template]
+      self.text = ""
+      
+   @staticmethod
+   def show_template(func):
+      return self.text 
+
+   template_method = {'function_name':show_template,'keywords':['template']}
+      
+@template.route('/apps/template',methods=["GET"])
+def run():
+   return json.dumps({"text":"template page"})   

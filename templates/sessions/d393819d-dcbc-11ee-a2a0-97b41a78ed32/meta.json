@@ -1,0 +1,1 @@
+{"meta": {"duration": 2.7179718017578125e-05, "computation_time_balance": 29.99997091293335, "server_time": "07/03/2024 16:56:50", "user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0", "ip": "127.0.0.1"}, "input": {"text": "integrate cos(x)"}, "output": "{\"url\": \"http://localhost:8080/apps/integrate?input=cos%28x%29\"}"}

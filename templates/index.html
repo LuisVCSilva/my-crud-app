@@ -1,40 +1,59 @@
-{% extends 'base.html'%}
+<!doctype html>
+  <html lang="en">
+    <head>
+      <!-- views/partials/head.ejs -->
+      <meta charset="UTF-8">
+      <title>Malba Math Engine</title>
 
-{% block head %}
-<title>Task Smask</title>
-{% endblock %}
 
+      <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+      <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
 
-{% block body%}
-<div class="content">
-	<h1>Task Smash 2.0</h1>
+      <link href="{{ url_for('static', filename='jsonTree.css')}}" rel="stylesheet" />
+      <script src="{{ url_for('static', filename='jsonTree.js')}}"></script>
+      <script src="{{ url_for('static', filename='App.js')}}"></script>            
+      <script src="{{ url_for('static', filename='jsonTreeViewer.js')}}"></script>      
 
-	{% if tasks | length < 1%}
-	<h3>There are no tasks... Create one here!</h3>
-	{% else %}
-	<table>
-		<tr>
-			<th>Task</th>
-			<th>Added</th>
-			<th>Actions</th>
-		</tr>
-		{% for task in tasks %}
-			<tr>
-				<td>{{task.content}}</td>
-				<td>{{task.created.strftime("%Y-%m-%d")}}</td>
-				<td>
-					<a href="/delete/{{task.id}}">Delete</a>
-					<br/>
-					<a href="/edit/{{task.id}}">Edit</a>
-				</td>
-			</tr>
-		{% endfor %}
-	</table>
-	{% endif %}
-	<form action="/" method="POST">
-		<input type="text" name="content" id="content" />
-		<input type="submit" value="Add Task" id="btn_add" />
-	</form>
-</div>
+      <!-- CSS (load bootstrap from a CDN) -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+         <!-- You need the complete jQuery -->
+      <!--<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>-->
+      <link rel="stylesheet" href="{{ url_for('static', filename='jquery-3.3.1.js') }}">        
+      <!-- Needed, so Bootstrap tooltips work -->
+      <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>-->
+      <link href="{{ url_for('static', filename='index-style.css') }}" rel="stylesheet" type="text/css"/>      
+      <script src="{{ url_for('static', filename='jquery-3.3.1.js') }}"></script>            
+      <link href="https://fonts.googleapis.com/css?family=Mina" rel="stylesheet">
+      <script src="{{ url_for('static', filename='jquery.toast.min.js') }}"></script>      
+      <link href="{{ url_for('static', filename='index-style.css') }}" rel="stylesheet" type="text/css"/>
+      <link href="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js" data-rel="script" type="text/javascript">
+    </head>
+    <body>      
+      <div id="container">
+        <output>
+        </output>
 
-{% endblock %}
+      
+        <div id="input-line" class="input-line">
+          <div class="prompt">
+          </div>
+          <div>
+            <input class="cmdline" autofocus />
+          </div>
+        </div>
+      </div>
+    <!-- Includes the custom object "Terminal" to set it up later -->
+    <script src="{{ url_for('static', filename='terminal.js') }}"></script>
+    <!-- Actual initialization of the terminal -->
+    <script id='terminal'>
+    $(function() {
+         // Initialize a new terminal object
+         // new Terminal(cmdLineContainer, outputContainer, config)
+      window.term = new Terminal('#input-line .cmdline', '#container output');
+      term.init();
+      });
+    </script>
+    <a id="abortion_site" style="pointer-events: none; cursor: default;" onclick="window.term.abortAjax()"></a>
+  </body>
+</html>

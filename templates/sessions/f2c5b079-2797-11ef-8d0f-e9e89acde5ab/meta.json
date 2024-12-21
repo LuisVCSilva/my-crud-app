@@ -1,0 +1,1 @@
+{"meta": {"duration": 2.0265579223632812e-05, "computation_time_balance": 29.999979496002197, "server_time": "10/06/2024 23:11:46", "user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0", "ip": "127.0.0.1"}, "input": {"text": "solve x"}, "output": "{\"url\": \"http://localhost:5000/apps/solve?input=x\"}"}
